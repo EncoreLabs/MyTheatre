@@ -49,8 +49,8 @@ app.get('/product-with-external-basket', (req, res) => {
     productId: inputs.productId,
     venueId: inputs.venueId,
     quantity: inputs.quantity,
-    fromDate: moment().format('YYYYMMDD'),             // today
-    toDate: moment().add(1, 'weeks').format('YYYYMMDD'), // a week from now
+    fromDate: inputs.fromDate,
+    toDate: inputs.toDate,
     productType: inputs.productType,
     affiliateId: config.settings.affiliateId,
     apiPath: inventorySettings.host,
@@ -71,8 +71,8 @@ app.get('/product', (req, res) => {
     productId: inputs.productId,
     venueId: inputs.venueId,
     quantity: inputs.quantity,
-    fromDate: moment().format('YYYYMMDD'),             // today
-    toDate: moment().add(1, 'weeks').format('YYYYMMDD'), // a week from now
+    fromDate: inputs.fromDate,
+    toDate: inputs.toDate,
     productType: inputs.productType,
     affiliateId: config.settings.affiliateId,
     apiPath: inventorySettings.host,

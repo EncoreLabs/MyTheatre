@@ -55,13 +55,13 @@ app.get('/', (req, res) => {
 
 app.get('/availability', (req, res) => {
   const { affiliateId, environment } = config.settings;
-  const { quantity, productId } = config.inputs;
+  const { quantity, productId, fromDate, toDate } = config.inputs;
   const availabilityInputs = {
     affiliateId,
     productId,
     quantity,
-    fromDate: moment().format('YYYYMMDD'),             // today
-    toDate: moment().add(1, 'weeks').format('YYYYMMDD'), // a week from now
+    fromDate,
+    toDate,
     environment,
   };
 
