@@ -8,6 +8,15 @@ const getPerformance = (inputs, template, callback, inventoryService) => {
     date,
     time,
   ).then((data) => {
+    if (!data) {
+      callback.render('error', {
+        title: 'Product page',
+        messages: [`There isn't any availability for current date`],
+      })
+
+      return;
+    }
+
     const availabilityData = processData(data);
 
     callback.render(template, {

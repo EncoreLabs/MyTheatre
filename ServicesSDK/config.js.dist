@@ -15,6 +15,7 @@ const inputs = {
 const bookingData = {
   redirectUrl: 'https://example.com',
   deliveryMethod: 'C',
+  paymentType: 'account',
   agentDetails: {
     agentId: '',
     agentPassword: '',
