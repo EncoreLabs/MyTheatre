@@ -1,5 +1,5 @@
 const getPerformance = (inputs, template, callback, inventoryService) => {
-  const {affiliateId, productId, quantity, date, time} = inputs;
+  const { affiliateId, productId, quantity, date, time } = inputs;
 
   inventoryService.getPerformanceAvailability(
     affiliateId,
@@ -11,7 +11,7 @@ const getPerformance = (inputs, template, callback, inventoryService) => {
     if (!data) {
       callback.render('error', {
         title: 'Product page',
-        messages: [`There isn't any availability for current date`],
+        messages: ['There is no availability for selected date'],
       })
 
       return;

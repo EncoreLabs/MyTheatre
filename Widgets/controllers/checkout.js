@@ -14,9 +14,8 @@ const createBooking = (inputs, template, callback, checkoutService) => {
     paymentType,
   }).then(data => {
     const paymentId = data.paymentId || 'on-account-booking';
-    const messages = data.paymentId ?
-      [`Booking ${reference} was successfully confirmed.`] :
-      [`On account booking ${reference} was successfully confirmed.`];
+    const bookingType = data.paymentId ? 'not on account' : 'on account';
+    const messages = [`Booking ${reference} was successfully confirmed (${bookingType}).`];
 
     checkoutService.confirmBooking(
       reference,

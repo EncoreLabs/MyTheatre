@@ -225,7 +225,7 @@ app.get('/success', (req, res) => {
     shopper,
     billingAddress,
     result: 'success',
-    messages: [`Booking ${req.query.reference} was successfully confirmed`],
+    messages: [`Booking ${req.query.reference} was successfully confirmed (not on account).`],
     title: 'Confirmation Page',
   });
 });
