@@ -1,0 +1,22 @@
+extends layout
+
+block layout-content
+  div.card
+    div.card-body
+      div
+        b product ID -&nbsp;
+        =inputs.productId
+      div
+        b quantity -&nbsp;
+        =inputs.quantity
+      div
+        b affiliate -&nbsp;
+        =inputs.affiliateId
+  br
+  table.table
+    tr
+      th Available datetimes:
+    each item in listOfAvailableTime
+      tr
+        td
+          a(href=`/performance?date=${item.date}&time=${item.time}&productId=${inputs.productId}&quantity=${inputs.quantity}&affiliateId=${inputs.affiliateId}&datetime=${item.datetime}`) #{item.datetime}

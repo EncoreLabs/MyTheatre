@@ -1,0 +1,36 @@
+extends layout
+
+block layout-content
+  div.card
+    div.card-body
+      div
+        b product ID -&nbsp;
+        =inputs.productId
+      div
+        b quantity -&nbsp;
+        =inputs.quantity
+      div
+        b affiliate -&nbsp;
+        =inputs.affiliateId
+      div
+        b date -&nbsp;
+        =inputs.date
+      div
+        b time -&nbsp;
+        =inputs.time
+      br
+      table.table
+        each availabilityItem in availabilityData
+          tr
+            th(colspan="3") Area: #{availabilityItem.areaName}
+          tr
+            th Group Identifier
+            th Sale price
+            th Seats Identifiers
+          each group in availabilityItem.groupings
+            tr
+              td(style='width: 200px; padding: 10px;') #{group.groupIdentifier}
+              td(style='width: 100px') #{group.prices.salePrice[0].currency + ' ' + (group.prices.salePrice[0].value/100).toFixed(2)}
+              td
+                each seatLump in group.seatLumps
+                  a(href=`/addToBasket?productId=${inputs.productId}&quantity=${inputs.quantity}&date=${inputs.datetime}&aggregateReferences=${seatLump.aggregateReferences}` style='display: inline-block; padding: 5px;') [#{seatLump.seatIdentifiers.join(', ')}]

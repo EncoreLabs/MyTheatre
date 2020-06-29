@@ -1,0 +1,10 @@
+extends layout
+
+block layout-content
+  span.Details Let's try for "Wicked"
+  -if(messages)
+    div(class="alert alert-info" role="alert")
+      div#note #{messages}
+  div.NavButtons
+    a(href="/availability")
+        div.NavButton Show me availability!

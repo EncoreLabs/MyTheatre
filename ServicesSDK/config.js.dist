@@ -1,0 +1,27 @@
+const settings = {
+  affiliateId: '',
+  channelId: '',
+  environment: 'staging',
+};
+
+const inputs = {
+  productId: 1587,
+  venueId: 138,
+  quantity: 2,
+  fromDate: '20201102',
+  toDate: '20201109',
+};
+
+const bookingData = {
+  redirectUrl: 'https://example.com',
+  deliveryMethod: 'C',
+  paymentType: 'account',
+  agentDetails: {
+    agentId: '',
+    agentPassword: '',
+  },
+}
+
+module.exports.settings = settings;
+module.exports.inputs = inputs;
+module.exports.bookingData = bookingData;

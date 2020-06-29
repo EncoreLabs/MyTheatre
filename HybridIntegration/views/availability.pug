@@ -1,0 +1,22 @@
+extends layout
+
+block layout-content
+  div.card
+    div.card-body
+      div
+        b product ID - 
+        =request.urlParams.productId
+      div
+        b quantity   - 
+        =request.urlParams.quantity
+      div
+        b affiliate  - 
+        =request.query.affiliateId
+  br
+  table.table
+    tr
+      th Available datetimes:
+    for item in response
+      tr
+        td
+          a(href='/performance?date='+item.datetime+'&productId='+request.urlParams.productId+'&quantity='+request.urlParams.quantity+'&affiliateId='+request.query.affiliateId) #{item.datetime}

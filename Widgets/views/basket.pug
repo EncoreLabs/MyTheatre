@@ -1,0 +1,45 @@
+extends layout
+
+block layout-content
+  table.table
+    tr
+      th basket reference
+      th basket checksum
+      th action
+    tr
+      td #{reference}
+      td #{checksum}
+      td
+        -if(items && items.length)
+          a(href=`/addCustomerDetails?reference=${reference}`) add customer details
+  br
+  -if(items && items.length)
+    table.table
+      tr
+        th product Id
+        th product name
+        th venue Id
+        th venue name
+        th date of performance
+        th sale price for ticket
+        th number of tickets
+        th total price
+        th action
+      each item in items
+        tr
+          td #{item.productId}
+          td #{item.productName}
+          td #{item.venueId}
+          td #{item.venueName}
+          td #{item.date}
+          td #{item.salePrice.currency} #{(item.salePrice.value / 100).toFixed(2)}
+          td #{item.quantity}
+          td #{item.salePrice.currency} #{(item.totalPrice / 100).toFixed(2)}
+          td
+            a(href=`/deleteItem?reference=${reference}&itemId=${item.id}`) delete item
+  -else
+    div(class="alert alert-danger" role="alert")
+      div#note Your Basket is empty!
+    div.NavButtons
+      a(href="/")
+        div.NavButton Back to home page
